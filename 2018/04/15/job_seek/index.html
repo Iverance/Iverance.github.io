@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+    <!-- title -->
+
+
+
+
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <meta name="description" content="">
+    <title>一個資淺工程師在矽谷的跳槽筆記 · CJC&#39;s Studio</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= /css/style.css?v=20180317 as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" type="text/css" href= /css/mobile.css?v=20180317 media="(max-width: 980px)"/>
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        
+    <link rel="icon" href= /assets/favicon.ico>
+    <script>
+        (function (w) {
+            "use strict";
+            // rel=preload support test
+            if (!w.loadCSS) {
+                w.loadCSS = function () { };
+            }
+            // define on the loadCSS obj
+            var rp = loadCSS.relpreload = {};
+            // rel=preload feature support test
+            // runs once and returns a function for compat purposes
+            rp.support = (function () {
+                var ret;
+                try {
+                    ret = w.document.createElement("link").relList.supports("preload");
+                } catch (e) {
+                    ret = false;
+                }
+                return function () {
+                    return ret;
+                };
+            })();
+
+            // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+            // then change that media back to its intended value on load
+            rp.bindMediaToggle = function (link) {
+                // remember existing media attr for ultimate state, or default to 'all'
+                var finalMedia = link.media || "all";
+
+                function enableStylesheet() {
+                    link.media = finalMedia;
+                }
+
+                // bind load handlers to enable media
+                if (link.addEventListener) {
+                    link.addEventListener("load", enableStylesheet);
+                } else if (link.attachEvent) {
+                    link.attachEvent("onload", enableStylesheet);
+                }
+
+                // Set rel and non-applicable media type to start an async request
+                // note: timeout allows this to happen async to let rendering continue in IE
+                setTimeout(function () {
+                    link.rel = "stylesheet";
+                    link.media = "only x";
+                });
+                // also enable media after 3 seconds,
+                // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+                setTimeout(enableStylesheet, 3000);
+            };
+
+            // loop through link elements in DOM
+            rp.poly = function () {
+                // double check this to prevent external calls from running
+                if (rp.support()) {
+                    return;
+                }
+                var links = w.document.getElementsByTagName("link");
+                for (var i = 0; i < links.length; i++) {
+                    var link = links[i];
+                    // qualify links to those with rel=preload and as=style attrs
+                    if (link.rel === "preload" && link.getAttribute("as") === "style" && !link.getAttribute("data-loadcss")) {
+                        // prevent rerunning on link
+                        link.setAttribute("data-loadcss", true);
+                        // bind listeners to toggle media back
+                        rp.bindMediaToggle(link);
+                    }
+                }
+            };
+
+            // if unsupported, run the polyfill
+            if (!rp.support()) {
+                // run once at least
+                rp.poly();
+
+                // rerun poly on an interval until onload
+                var run = w.setInterval(rp.poly, 500);
+                if (w.addEventListener) {
+                    w.addEventListener("load", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                } else if (w.attachEvent) {
+                    w.attachEvent("onload", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                }
+            }
+            // commonjs
+            if (typeof exports !== "undefined") {
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }(typeof global !== "undefined" ? global : this));
+    </script>
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    <script src="/scripts/main.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >CJC&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">一個資淺工程師在矽谷的跳槽筆記</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>CJC's Studio.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style=
+
+
+
+
+
+
+
+
+height:50vh;
+
+>
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            一個資淺工程師在矽谷的跳槽筆記
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "interview">interview</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/04/15</span>
+                
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe602;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                    <span class="shareText">Share</span>
+                    <ul class="shareList">
+                        <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                            <div class="share-qrcode"></div>
+                        </li>
+                        <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                        <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                        <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                        <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                    </ul>
+                </span>
+            </div>
+        
+    </div>
+</div>
+        <script>
+  // load webfont-loader async, and add callback function
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+  
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+      if (postIntroTags) {
+        postIntroTags.classList.add('post-fade-in');
+      }
+      if (postIntroMeat) {
+        postIntroMeat.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  async("https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", asyncCb)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>身在名為矽谷的巨大科學園區, 透過跳槽去尋求更好工作環境以及收入這件事情, 對於禁止競業條款的加州是相當自然的。而這樣的環境更是推動各家科技巨頭以及有前景的新創公司不斷的提升自家的工作環境, 以降低專業人才, 尤其是高階工程師/架構師的流動率。對於一個27歲, 資歷尚淺的我來說, 第一次跳槽的經驗總是特別深刻, 因此我決定來分享我的經驗給對美國市場有興趣、或是在美國攻讀高等學位的朋友們當個參考。</p>
+<h2 id="求職背景"><a href="#求職背景" class="headerlink" title="求職背景"></a>求職背景</h2><p>我在大學資訊工程學系畢業之後, 2013年輾轉來到了聖荷西州立大學(San Jose State University)攻讀軟體工程碩士, 碩二期間因為地利之便在賽門鐵克(Symantec)實習了一整年, 最後接下當初老闆開的offer, 成為Norton部門的軟體工程師(Software Engineer)。也就是說, 即便算上實習的一整年, 本身在美的工作經驗大約也就是3-4年左右。這三年內我也從實習生順利地升職成資深工程師(Senior Software Engineer)。有鑒於大部份美國公司對於海外經驗不是特別重視, 很容易會有資歷重算的狀況, 例如當初實習時的幾位印度同事已經有2-3年的工作經驗, 但是一樣接到的是軟體工程師而非資深工程師的錄取書, 因此有美國/美商經驗會是個一個加分。</p>
+<h2 id="取得面試"><a href="#取得面試" class="headerlink" title="取得面試"></a>取得面試</h2><p>有不少人認為取得面試還得有貴人相助, 但我目前認為履歷絕對是取得面試最重要的一環, 而取得面試最重要的第一步就是把你的履歷送到Recruiter的眼前, 沒有一個Recruiter想要一天看幾千份履歷然後發現80%都是他們不感興趣的人, 因此他們多半會用各式各樣的求職網站刪選履歷。現在Recruiter相當輕鬆就可以在各大求職網站上取得適合面試者的資料。要是好好的更新Linkedin, Monster或是Indeed並且放上一份附有各式各樣關鍵字的履歷, 絕對能讓個人資料在搜尋榜上出現在前幾頁。履歷的格式</p>
+<p>是否購買Linkedin Premium見仁見智, 我個人認為購買的最大好處是你可以反向追蹤有哪些Recruiter曾經閱覽過你的履歷, 或是你出現在哪些關鍵字搜尋來確保你心目中理想的受眾有看見你的履歷, 然後你可以進一步的<code>主動聯絡</code>他們詢問你有興趣的職缺。免費等級的帳號是<code>不能</code>主動聯絡Recruiter的, 所以有購買的朋友記得要善用這些付費的功能。<br>另外一方面這些求職網站也可以讓你主動聯絡校友、以前的同事或是同學等等。有人能內部推薦, 是比較有機會把你的履歷送進Recruiter的眼簾的</p>
+<p>矽谷大型公司的獵頭目前就我所知多半分成兩種。一種是所謂的通才招募(General Talent Recruiting), 這類型的公司有Google, Facebook, Amazon, Linkedin等等。這些公司基本上他們尋找的是有潛力的人才或是已開發的專才, 面試前你並不會知道你會在哪一個team/domain工作, 而面試的內容也比較不會聚焦在你的領域知識(例如電商, 防毒安全, 社群軟體, 手機應用程式等)。通才招募的面試只要履歷準備充分加上有幾年工作經驗, 透過友人內部推薦通常是不難取得（當然這並不會降低面試的難度）, 若能獲得有力人士（高階主管, 學校教授..）的推薦更是錦上添花。有幾年經驗的工程師, 透過Linkedin也可以相當容易聯絡Recruiter, Hired跟AngelList我使用的比例相對較低, 就不特別評論, 不過周遭朋友的心得是在這些平台比上較容易吸引矽谷小型新創公司的目光。有興趣在新創圈打拼一番的朋友可以多加考慮。</p>
+<p>另外一種就是一般的職缺招募(Position Recruiting), 根據公司內部團隊的需求開出缺額跟門檻, 再由Recruiter去接觸求職者。這類型的面試內容就會有比較多關於領域知識的問題, 例如我有電商部門工作的經驗, 在面試Twitch時就被詢問大量關於設計電商後端的系統設計問題。要是透過這個方式而獲得面試的, 記得多了解一下自己Domain裡面的Use cases跟相關系統的設計。</p>
+<h2 id="面試準備"><a href="#面試準備" class="headerlink" title="面試準備"></a>面試準備</h2><p>準備面試前先了解流程, 現今大公司的面試流程受到Google影響, 都分成三個階段。Recruiter接洽了解意願及興趣 -&gt; 電話面試 -&gt; 一天onsite現場面試(4-7輪) -&gt; 送hiring committee -&gt; 協商offer -&gt; 接受/拒絕。實習生通常只有到電話面試或是視訊面試, 不用特別飛到總部接受資深工程師的制裁(?)。其中每一輪面試的方向會因為面試公司的企業文化調整, 例如Airbnb, Linkedin相當看重behavior類型的題目, Google就會注意你的性格適不適合Google獨樹一格的工程師文化, 因此稍微暸解一下目標公司的企業文化多少是有點幫助的。</p>
+<p>在軟體工程師面試中最重要的還是技術能力, 關於技術能力大部分的試面內容大約可以分成兩個部分, 一個是演算法/資料結構的實作, 另一個是系統設計/架構(System Design)。關於演算法/資料結構, 相信有在找工作的讀者已經看了不少關於中國的小伙伴帶給大家的Leetcode或是HackerRank的刷題心得。這部分蠻看面試者本身開始準備時的本身對專業知識在哪個程度, 我本身接觸過得例子從Leetcode全部刷完甚至刷到重複三四遍,最後美夢成真上了Google, 到練習不到五十題但是offer滿手的都有。給個參考, 筆者大約準備了半年, 總共寫了450題左右, 基本上都可以順利通過電話面試的階段, 甚至是跳過電話面試直接onsite面試。這個部分是基本, 盡量多複習各式演算法內容, 至於練習的語言順手的就可以(個人是使用python), 以下條列出我認為需要熟練的電腦科學基礎。</p>
+<ul>
+<li>Binary search</li>
+<li>Tree traversal(BFS, DFS, In Order…)</li>
+<li>Hash table</li>
+<li>Sorting</li>
+<li>String / Array</li>
+<li>Bit manipulate</li>
+<li>Trie tree</li>
+<li>Heap</li>
+<li>Graph (Cycle detection, traversal…)</li>
+<li>Dynamic programing</li>
+</ul>
+<p>因為不論是電話面試還是onsite的白板題, 都需要全程寫code, 而且有些公司是會要求compile然後跑測資的。所以練習的時候如果本身沒有強大的基礎, 請盡量練習的每一題都認真寫過一遍, 並且了解背後的基礎而不是死記(畢竟那對於打算長期以科技業維生的你也沒有任何幫助)。模擬面試時, 多多描述你的思考邏輯以及如何把一個大的問題拆分成一個個小的問題來解決。有多餘的時間的話, 也可以練習寫一些測試來幫助你多注意可能會有bug的地方, 從corner case開始寫會是一個不錯的開始。這部分就是有練習有分, 觀摩討論區的解法然後建立起自己的Template會對速度很有幫助, 畢竟你有可能是要在40分鐘內拆解一個Leetcode hard level的問題, 很容易一個不小心時間過去但是一行都寫不出來, 只講了一嘴白話。</p>
+<p>系統設計的部分就包山包海, 網路上已經有相當多專門的gitbook著墨在這一塊, 文末會附上我有使用的各類資源網站。系統問題的難度也會根據面試的職位而有所差異, 針對公司的產品下手會是個不錯的選擇, 例如Facebook就多研究一下如何建立跟查找一個social graph, youtube就理解一下背後影音cache的架構。我個人認為這部分是面試過程中最難也是最有鑑別度的一環。</p>
+<p>最後一個面試大家會注意的角度是Behavior, 這部分面試者會觀察你是否符合公司的企業文化, 以及對方如果身為一個管理階層是不是願意跟你在同一個單位工作這樣的角度去觀察你的面試表現。這部分比較難以準備, 總括來說還是以口條清晰、容易合作並且在溝通技術類別的專案的時候, 盡量用適合的比喻來讓非技術背景的人員能清楚理解你的意思。每個人的人格特質都有好與不好的部分, 了解自己是在Behavior這關拿分的要點。自己擅長什麼、缺少什麼, 都會決定最後想要表現給面試官的第一印象的方向。</p>
+<h2 id="時程排期"><a href="#時程排期" class="headerlink" title="時程排期"></a>時程排期</h2><p>在美國找工作從接觸Recruiter到最後接受Offer到新公司, 中間很有可能三四個月就過去了, 所以我認為排期相當重要。要是能掌控好能在差不多的時間點可能收到各個公司的結果是最好的, 方便做最後選擇跟討價還價, 心情上也比較不容易被長期抗戰拖垮。一般的情況下通才招募的時間比較彈性, 想要延期你的電話面試超過三到六個月都是有可能的, 相對的他們的面試期就拖的比較長, 可能電話面試完兩三個禮拜之後才知道有沒有onsite, onsite之後可能又要等兩三個禮拜才有回音決定是不是要送HC或是加面, 然後等HC通過跟準備offer可能又一個多禮拜過去了。這個部分Start up或是中小型的公司速度就快很多, 很有可能從聯絡到發offer不超過一個月甚至兩個禮拜。因此安排面試的時候就要預估最後獲得結果的時間, 想辦法最大化那個時間區間內可以獲得的面試結果數量。告訴Recruiter你的時程表, 通常他們都很樂意配合你的時間表並且告訴你什麼時候開始你的面試最適合。</p>
+<h2 id="面試之後"><a href="#面試之後" class="headerlink" title="面試之後"></a>面試之後</h2><p>不論是電話面試還是onsite之後, 請盡量保持與Recruiter的聯繫, 要是一兩個禮拜依然沒有回音就跟對方詢問一下進度跟結果。這個時候會有三種可能的結果：</p>
+<h4 id="拒絕"><a href="#拒絕" class="headerlink" title="拒絕"></a>拒絕</h4><p>非常常見, 千萬不要因為被一間Dream Company拒絕就灰心喪志。被拒絕的原因有幾百種, 有可能就是當天中邪怎樣講都講不對, 或是面試官跟你不對盤, 也有可能單純的那個職缺招滿了。可以禮貌地詢問Recruiter被拒絕的原因,這有效地幫助你繼續面試下一家且不要踩到同樣的地雷。隨手一封感謝信並且跟對方保持聯繫對拓展人脈是有正向效果的, 說不定過一陣子人家缺人時, 第一個就想到你這個遺珠之憾。</p>
+<h4 id="加面"><a href="#加面" class="headerlink" title="加面"></a>加面</h4><p>有時會被要求, 表示對方對你有興趣但是並不是百分之百有信心, 或是你在某一些關鍵點表現得差強人意。這部分可以跟Recruiter討論, 針對自己的時間跟策略重新調整。我聽到相當多的例子加面之後都是穩穩地拿了offer, 是一個敗部復活的機會, 好好把握。</p>
+<h4 id="錄取"><a href="#錄取" class="headerlink" title="錄取"></a>錄取</h4><p>恭喜, 走到這一步已經心裡的大石放下一半了。當拿到offer的時候, 這邊有一個大部分亞洲人基本上是直接放棄的選項: 薪資協商。 因為國外工作者需要申請簽證的關係, 導致於錄取者是雇主開什麼價就拿什麼。我建議有多份offer的朋友可以考慮協商與喊價, 前陣子有一位Haseeb Qureshi透過拿了多份offer以及相當穩健的協商技巧讓自己的薪資翻倍, 並且寫了一系列的心得<a href="https://haseebq.com/my-ten-rules-for-negotiating-a-job-offer/" target="_blank" rel="noopener">Ten Rules for Negotiating a Job Offer
+</a> 這系列的文章在我與Recruiter協商時惠我良多, 有興趣的朋友請自行參考。</p>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>筆者這次在科技叢林尋找機會的過程中, 算是走遍了各大公司。從準備到第一個電話面試開始到最後決定Offer總共花了6個月+左右。這半年來我覺得換找工作最痛苦的莫過於下列幾點。</p>
+<h4 id="毅力"><a href="#毅力" class="headerlink" title="毅力"></a>毅力</h4><p>每一天都要唸書跟刷題真的不是一件簡單的差事, 加上已經不是學生白天還得上班, 最後導致一兩點睡是常態。</p>
+<h4 id="患得患失"><a href="#患得患失" class="headerlink" title="患得患失"></a>患得患失</h4><p>我在Amazon的電話面試就被海刷, 但是卻成功挺進Google, Linkedin, Airbnb等夢想公司面試的最後一輪。而在那整個過程中我起起伏伏的表現跟節外生枝的負面情緒整體來說對面試準備是個X因子, 如何紓解面試期間的壓力是一個必須面對的課題。</p>
+<h4 id="模擬面試"><a href="#模擬面試" class="headerlink" title="模擬面試"></a>模擬面試</h4><p>模擬面試是一個必須且痛苦的過程, 期間你會暴露自己<code>大量</code>不願面對的缺點以及接收相當程度的批評, 之後需要轉化這些建議成為自己的準備的方向, 這部分花上的時間跟精力真的讓我最後每次想到都頭痛。</p>
+<p>面試的過程總是相當辛苦, 而且收穫不見得與付出成正比。影響面試的因素除了實力還要有相當的運氣, 千萬不要因為自己無法面不上那些萬中選一的公司而喪氣, 面試失利並不代表你在這個產業只是個庸才, 很多時候說不定那間上不了的夢想公司, 根本不是對你來說最好的去處。而且獲得offer開始正式上工之後, 才是下一條艱辛路途的開始。<br>當然某種程度上我也不完全認同現在的面試制度可以合理的篩選出最棒的人才, 只是這的確是目前業界公認最佳的篩選過程, 且至今還沒有其他的組織提出一個更好的方式。</p>
+<p>另外對於一些資深工程師或是架構師認為這些大量演算法/資料結構的面試方法並不符合他們面試的職位, 我個人是傾向支持這篇<a href="https://www.quora.com/How-should-I-avoid-getting-an-overqualified-tag-in-a-Google-interview" target="_blank" rel="noopener">Quora的回答</a>, 若有興趣的朋友可以參考一下。</p>
+<p>最後是我有使用的工具以及網路資源</p>
+<ol>
+<li><a href="https://leetcode.com/" target="_blank" rel="noopener">https://leetcode.com/</a></li>
+<li><a href="https://github.com/skygragon/leetcode-cli" target="_blank" rel="noopener">[Github] leetcode-cli</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener">https://github.com/donnemartin/system-design-primer</a></li>
+<li><a href="https://github.com/checkcheckzz/system-design-interview" target="_blank" rel="noopener">https://github.com/checkcheckzz/system-design-interview</a></li>
+<li><a href="https://github.com/binhnguyennus/awesome-scalability" target="_blank" rel="noopener">https://github.com/binhnguyennus/awesome-scalability</a></li>
+<li><a href="https://medium.com/netflix-techblog" target="_blank" rel="noopener">https://medium.com/netflix-techblog</a></li>
+</ol>
+<p>希望這篇文章能稍微幫助到最近需要在美國市場找工作的朋友, 共勉之。</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:jeremhh@hotmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/iverance" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//linkedin.com/in/chengju-chuang" class="iconfont-archer linkedin" target="_blank" title=linkedin></a>
+            
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求職背景"><span class="toc-number">2.</span> <span class="toc-text">求職背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#取得面試"><span class="toc-number">3.</span> <span class="toc-text">取得面試</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面試準備"><span class="toc-number">4.</span> <span class="toc-text">面試準備</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#時程排期"><span class="toc-number">5.</span> <span class="toc-text">時程排期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面試之後"><span class="toc-number">6.</span> <span class="toc-text">面試之後</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#拒絕"><span class="toc-number">6.0.1.</span> <span class="toc-text">拒絕</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#加面"><span class="toc-number">6.0.2.</span> <span class="toc-text">加面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#錄取"><span class="toc-number">6.0.3.</span> <span class="toc-text">錄取</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#總結"><span class="toc-number">7.</span> <span class="toc-text">總結</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#毅力"><span class="toc-number">7.0.1.</span> <span class="toc-text">毅力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#患得患失"><span class="toc-number">7.0.2.</span> <span class="toc-text">患得患失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模擬面試"><span class="toc-number">7.0.3.</span> <span class="toc-text">模擬面試</span></a></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 1 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/15</span><a class="archive-post-title" href= "/2018/04/15/job_seek/" >一個資淺工程師在矽谷的跳槽筆記</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="interview"><span class="iconfont-archer">&#xe606;</span>interview</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: '/',
+        author: 'Jeremy Chuang'
+    }
+</script>
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+    
+    </body>
+</html>
+
+
