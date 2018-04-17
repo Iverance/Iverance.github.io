@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Iverance.github.io/"/>
-  <updated>2018-04-17T18:00:00.156Z</updated>
+  <updated>2018-04-17T18:00:01.364Z</updated>
   <id>http://Iverance.github.io/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>multi-python-ubuntu</title>
-    <link href="http://Iverance.github.io/2018/04/17/multi-python-ubuntu/"/>
-    <id>http://Iverance.github.io/2018/04/17/multi-python-ubuntu/</id>
-    <published>2018-04-17T17:55:44.000Z</published>
-    <updated>2018-04-17T18:00:00.156Z</updated>
-    
-    <content type="html"><![CDATA[<p>Unbuntu 12.04已經有內建2.7版本的python<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python --version</span><br><span class="line">Python 2.7.3</span><br></pre></td></tr></table></figure></p><p>根據Ubuntu論壇上表示如果想要完全取代2.7的話, 可能會導致其他使用python的library版本錯誤<br>所以這個筆記是簡略的紀錄如何處理類似的問題。</p><p>前置軟體安裝：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential</span><br><span class="line"><span class="comment"># SQLite libs need to be installed in order for Python to have SQLite support.</span></span><br><span class="line">sudo apt-get install libsqlite3-dev</span><br><span class="line"><span class="comment"># for the command-line client</span></span><br><span class="line">sudo apt-get install sqlite3 </span><br><span class="line">sudo apt-get install bzip2 libbz2-dev</span><br></pre></td></tr></table></figure></p><p>從官方網站下載最新版本的python並且解壓縮<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.python.org/ftp/python/3.3.5/Python-3.3.5.tar.xz</span><br><span class="line">tar xJf ./Python-3.3.5.tar.xz</span><br><span class="line"><span class="built_in">cd</span> ./Python-3.3.5</span><br><span class="line">./configure --prefix=/opt/python3.3</span><br><span class="line">make &amp;&amp; sudo make install</span><br></pre></td></tr></table></figure></p><p>然後把你想要的指令寫到bash裏面就可以了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'alias py3="/opt/python3.3/bin/python3.3"'</span> &gt;&gt; .bashrc</span><br></pre></td></tr></table></figure></p><p>結果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ py3 --version</span><br><span class="line">Python 3.3.5</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Unbuntu 12.04已經有內建2.7版本的python&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span 
-      
-    
-    </summary>
-    
-      <category term="system admin" scheme="http://Iverance.github.io/categories/system-admin/"/>
-    
-    
-      <category term="python" scheme="http://Iverance.github.io/tags/python/"/>
-    
-  </entry>
   
   <entry>
     <title>一個資淺工程師在矽谷的跳槽筆記</title>
@@ -85,6 +60,31 @@
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>multi-python-ubuntu</title>
+    <link href="http://Iverance.github.io/2014/04/11/multi-python-ubuntu/"/>
+    <id>http://Iverance.github.io/2014/04/11/multi-python-ubuntu/</id>
+    <published>2014-04-11T22:21:44.000Z</published>
+    <updated>2018-04-17T18:01:13.561Z</updated>
+    
+    <content type="html"><![CDATA[<p>Unbuntu 12.04已經有內建2.7版本的python<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python --version</span><br><span class="line">Python 2.7.3</span><br></pre></td></tr></table></figure></p><p>根據Ubuntu論壇上表示如果想要完全取代2.7的話, 可能會導致其他使用python的library版本錯誤<br>所以這個筆記是簡略的紀錄如何處理類似的問題。</p><p>前置軟體安裝：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential</span><br><span class="line"><span class="comment"># SQLite libs need to be installed in order for Python to have SQLite support.</span></span><br><span class="line">sudo apt-get install libsqlite3-dev</span><br><span class="line"><span class="comment"># for the command-line client</span></span><br><span class="line">sudo apt-get install sqlite3 </span><br><span class="line">sudo apt-get install bzip2 libbz2-dev</span><br></pre></td></tr></table></figure></p><p>從官方網站下載最新版本的python並且解壓縮<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.python.org/ftp/python/3.3.5/Python-3.3.5.tar.xz</span><br><span class="line">tar xJf ./Python-3.3.5.tar.xz</span><br><span class="line"><span class="built_in">cd</span> ./Python-3.3.5</span><br><span class="line">./configure --prefix=/opt/python3.3</span><br><span class="line">make &amp;&amp; sudo make install</span><br></pre></td></tr></table></figure></p><p>然後把你想要的指令寫到bash裏面就可以了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'alias py3="/opt/python3.3/bin/python3.3"'</span> &gt;&gt; .bashrc</span><br></pre></td></tr></table></figure></p><p>結果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ py3 --version</span><br><span class="line">Python 3.3.5</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Unbuntu 12.04已經有內建2.7版本的python&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span 
+      
+    
+    </summary>
+    
+      <category term="system admin" scheme="http://Iverance.github.io/categories/system-admin/"/>
+    
+    
+      <category term="python" scheme="http://Iverance.github.io/tags/python/"/>
     
   </entry>
   
