@@ -353,13 +353,18 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>Unbuntu 12.04已經有內建2.7版本的python<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python --version</span><br><span class="line">Python 2.7.3</span><br></pre></td></tr></table></figure></p>
-<p>根據Ubuntu論壇上表示如果想要完全取代2.7的話, 可能會導致其他使用python的library版本錯誤<br>所以這個筆記是簡略的紀錄如何處理類似的問題。</p>
-<p>前置軟體安裝：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential</span><br><span class="line"><span class="comment"># SQLite libs need to be installed in order for Python to have SQLite support.</span></span><br><span class="line">sudo apt-get install libsqlite3-dev</span><br><span class="line"><span class="comment"># for the command-line client</span></span><br><span class="line">sudo apt-get install sqlite3 </span><br><span class="line">sudo apt-get install bzip2 libbz2-dev</span><br></pre></td></tr></table></figure></p>
-<p>從官方網站下載最新版本的python並且解壓縮<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.python.org/ftp/python/3.3.5/Python-3.3.5.tar.xz</span><br><span class="line">tar xJf ./Python-3.3.5.tar.xz</span><br><span class="line"><span class="built_in">cd</span> ./Python-3.3.5</span><br><span class="line">./configure --prefix=/opt/python3.3</span><br><span class="line">make &amp;&amp; sudo make install</span><br></pre></td></tr></table></figure></p>
-<p>然後把你想要的指令寫到bash裏面就可以了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'alias py3="/opt/python3.3/bin/python3.3"'</span> &gt;&gt; .bashrc</span><br></pre></td></tr></table></figure></p>
-<p>結果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ py3 --version</span><br><span class="line">Python 3.3.5</span><br></pre></td></tr></table></figure></p>
-
+        <p>Unbuntu 12.04已經有內建2.7版本的python</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ python --version</span><br><span class="line">Python 2.7.3</span><br></pre></td></tr></table></figure>
+<p>根據Ubuntu論壇上表示如果想要完全取代2.7的話, 可能會導致其他使用python的library版本錯誤<br>
+所以這個筆記是簡略的紀錄如何處理類似的問題。</p>
+<p>前置軟體安裝：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install build-essential</span><br><span class="line"><span class="comment"># SQLite libs need to be installed in order for Python to have SQLite support.</span></span><br><span class="line">sudo apt-get install libsqlite3-dev</span><br><span class="line"><span class="comment"># for the command-line client</span></span><br><span class="line">sudo apt-get install sqlite3 </span><br><span class="line">sudo apt-get install bzip2 libbz2-dev</span><br></pre></td></tr></table></figure>
+<p>從官方網站下載最新版本的python並且解壓縮</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget http://www.python.org/ftp/python/3.3.5/Python-3.3.5.tar.xz</span><br><span class="line">tar xJf ./Python-3.3.5.tar.xz</span><br><span class="line"><span class="built_in">cd</span> ./Python-3.3.5</span><br><span class="line">./configure --prefix=/opt/python3.3</span><br><span class="line">make &amp;&amp; sudo make install</span><br></pre></td></tr></table></figure>
+<p>然後把你想要的指令寫到bash裏面就可以了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'alias py3="/opt/python3.3/bin/python3.3"'</span> &gt;&gt; .bashrc</span><br></pre></td></tr></table></figure>
+<p>結果：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ py3 --version</span><br><span class="line">Python 3.3.5</span><br></pre></td></tr></table></figure>
     </article>
     <!-- 前后页  -->
     <ul class="post-paginator">
@@ -372,6 +377,11 @@ height:50vh;
             
         </li>
         <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2014/02/07/install-hadoop-2-2/" title= Install Hadoop 2.2 (Multi Node) under CentOS 5+ >
+                    <div class="prevTitle">Install Hadoop 2.2 (Multi Node) under CentOS 5+</div>
+                </a>
             
         </li>
     </ul>
@@ -517,7 +527,18 @@ top:50vh;
     
     
     
-    <div class="total-archive"> Total : 3 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 4 </div>
     
     <div class="post-archive">
     
@@ -551,14 +572,21 @@ top:50vh;
             <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2014/04/11/multi-python-ubuntu/" >在Ubuntu 12.04 下安裝不同版本python</a>
         </li>
     
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/07</span><a class="archive-post-title" href= "/2014/02/07/install-hadoop-2-2/" >Install Hadoop 2.2 (Multi Node) under CentOS 5+</a>
+        </li>
+    
     </div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="interview"><span class="iconfont-archer">&#xe606;</span>interview</span>
+        <span class="sidebar-tag-name" data-tags="hadoop"><span class="iconfont-archer">&#xe606;</span>hadoop</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
+        <span class="sidebar-tag-name" data-tags="interview"><span class="iconfont-archer">&#xe606;</span>interview</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -593,9 +621,11 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="Tech-Job"><span class="iconfont-archer">&#xe60a;</span>Tech-Job</span>
+        <span class="sidebar-category-name" data-categories="Tech"><span class="iconfont-archer">&#xe60a;</span>Tech</span>
     
         <span class="sidebar-category-name" data-categories="system-admin"><span class="iconfont-archer">&#xe60a;</span>system-admin</span>
+    
+        <span class="sidebar-category-name" data-categories="Tech-Job"><span class="iconfont-archer">&#xe60a;</span>Tech-Job</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

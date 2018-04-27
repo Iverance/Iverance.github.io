@@ -10,7 +10,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <meta name="description" content="">
-    <title>一個資淺工程師在矽谷的跳槽筆記 · CJC&#39;s Studio</title>
+    <title>Install Hadoop 2.2 (Multi Node) under CentOS 5+ · CJC&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -191,7 +191,7 @@
                 <a href="/" >CJC&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">一個資淺工程師在矽谷的跳槽筆記</a>
+                <a href="#" class="post-name">Install Hadoop 2.2 (Multi Node) under CentOS 5+</a>
             </div>
     </div>
     
@@ -223,7 +223,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            一個資淺工程師在矽谷的跳槽筆記
+            Install Hadoop 2.2 (Multi Node) under CentOS 5+
             <!-- 404 -->
             
         </h1>
@@ -241,13 +241,13 @@ height:50vh;
             
                 <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "interview">interview</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "hadoop">hadoop</a>
     
 </div>
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/04/15</span>
+                <span class="post-intro-time">2014/02/07</span>
                 
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe602;</span>
@@ -353,79 +353,82 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="前言"><a class="header-anchor" href="#前言">¶</a>前言</h2>
-<p>身在名為矽谷的巨大科學園區, 透過跳槽去尋求更好工作環境以及收入這件事情, 對於禁止競業條款的加州是相當自然的。而這樣的環境更是推動各家科技巨頭以及有前景的新創公司不斷的提升自家的工作環境, 以降低專業人才, 尤其是高階工程師/架構師的流動率。對於一個27歲, 資歷尚淺的我來說, 第一次跳槽的經驗總是特別深刻, 因此我決定來分享我的經驗給對美國市場有興趣、或是在美國攻讀高等學位的朋友們當個參考。</p>
-<h2 id="求職背景"><a class="header-anchor" href="#求職背景">¶</a>求職背景</h2>
-<p>我在大學資訊工程學系畢業之後, 2013年輾轉來到了聖荷西州立大學(San Jose State University)攻讀軟體工程碩士, 碩二期間因為地利之便在賽門鐵克(Symantec)實習了一整年, 最後接下當初老闆開的offer, 成為Norton部門的軟體工程師(Software Engineer)。也就是說, 即便算上實習的一整年, 本身在美的工作經驗大約也就是3-4年左右。這三年內我也從實習生順利地升職成資深工程師(Senior Software Engineer)。有鑒於大部份美國公司對於海外經驗不是特別重視, 很容易會有資歷重算的狀況, 例如當初實習時的幾位印度同事已經有2-3年的工作經驗, 但是一樣接到的是軟體工程師而非資深工程師的錄取書, 因此有美國/美商經驗會是個一個加分。</p>
-<h2 id="取得面試"><a class="header-anchor" href="#取得面試">¶</a>取得面試</h2>
-<p>有不少人認為取得面試還得有貴人相助, 但我目前認為履歷絕對是取得面試最重要的一環, 而取得面試最重要的第一步就是把你的履歷送到Recruiter的眼前, 沒有一個Recruiter想要一天看幾千份履歷然後發現80%都是他們不感興趣的人, 因此他們多半會用各式各樣的求職網站刪選履歷。現在Recruiter相當輕鬆就可以在各大求職網站上取得適合面試者的資料。要是好好的更新Linkedin, Monster或是Indeed並且放上一份附有各式各樣關鍵字的履歷, 絕對能讓個人資料在搜尋榜上出現在前幾頁。履歷的格式</p>
-<p>是否購買Linkedin Premium見仁見智, 我個人認為購買的最大好處是你可以反向追蹤有哪些Recruiter曾經閱覽過你的履歷, 或是你出現在哪些關鍵字搜尋來確保你心目中理想的受眾有看見你的履歷, 然後你可以進一步的<code>主動聯絡</code>他們詢問你有興趣的職缺。免費等級的帳號是<code>不能</code>主動聯絡Recruiter的, 所以有購買的朋友記得要善用這些付費的功能。<br>
-另外一方面這些求職網站也可以讓你主動聯絡校友、以前的同事或是同學等等。有人能內部推薦, 是比較有機會把你的履歷送進Recruiter的眼簾的</p>
-<p>矽谷大型公司的獵頭目前就我所知多半分成兩種。一種是所謂的通才招募(General Talent Recruiting), 這類型的公司有Google, Facebook, Amazon, Linkedin等等。這些公司基本上他們尋找的是有潛力的人才或是已開發的專才, 面試前你並不會知道你會在哪一個team/domain工作, 而面試的內容也比較不會聚焦在你的領域知識(例如電商, 防毒安全, 社群軟體, 手機應用程式等)。通才招募的面試只要履歷準備充分加上有幾年工作經驗, 透過友人內部推薦通常是不難取得（當然這並不會降低面試的難度）, 若能獲得有力人士（高階主管, 學校教授…）的推薦更是錦上添花。有幾年經驗的工程師, 透過Linkedin也可以相當容易聯絡Recruiter, Hired跟AngelList我使用的比例相對較低, 就不特別評論, 不過身邊朋友的心得是在這些平台比上較容易吸引矽谷小型新創公司的目光。有興趣在新創圈打拼一番的朋友可以多加考慮。</p>
-<p>另外一種就是一般的職缺招募(Position Recruiting), 根據公司內部團隊的需求開出缺額跟門檻, 再由Recruiter去接觸求職者。這類型的面試內容就會有比較多關於領域知識的問題, 例如我有電商部門工作的經驗, 在面試Twitch時就被詢問大量關於設計電商後端的系統設計問題。要是透過這個方式而獲得面試的, 記得多了解一下自己Domain裡面的Use cases跟相關系統的設計。</p>
-<h2 id="面試準備"><a class="header-anchor" href="#面試準備">¶</a>面試準備</h2>
-<p>準備面試前先了解流程, 現今大公司的面試流程受到Google影響, 都分成三個階段。Recruiter接洽了解意願及興趣 -&gt; 電話面試 -&gt; 一天onsite現場面試(4-7輪) -&gt; 送hiring committee -&gt; 協商offer -&gt; 接受/拒絕。實習生通常只有到電話面試或是視訊面試, 不用特別飛到總部接受資深工程師的制裁(?)。其中每一輪面試的方向會因為面試公司的企業文化調整, 例如Airbnb, Linkedin相當看重behavior類型的題目, Google就會注意你的性格適不適合Google獨樹一格的工程師文化, 因此稍微暸解一下目標公司的企業文化多少是有點幫助的。</p>
-<p>在軟體工程師面試中最重要的還是技術能力, 關於技術能力大部分的試面內容大約可以分成兩個部分, 一個是演算法/資料結構的實作, 另一個是系統設計/架構(System Design)。關於演算法/資料結構, 相信有在找工作的讀者已經看了不少關於中國的小伙伴帶給大家的Leetcode或是HackerRank的刷題心得。這部分蠻看面試者本身開始準備時的本身對專業知識在哪個程度, 我本身接觸過得例子從Leetcode全部刷完甚至刷到重複三四遍,最後美夢成真上了Google, 到練習不到五十題但是offer滿手的都有。給個參考, 筆者大約準備了半年, 總共寫了450題左右, 基本上都可以順利通過電話面試的階段, 甚至是跳過電話面試直接onsite面試。這個部分是基本, 盡量多複習各式演算法內容, 至於練習的語言順手的就可以(個人是使用python), 以下條列出我認為需要熟練的電腦科學基礎。</p>
-<ul>
-<li>Binary search</li>
-<li>Tree traversal(BFS, DFS, In Order…)</li>
-<li>Hash table</li>
-<li>Sorting</li>
-<li>String / Array</li>
-<li>Bit manipulate</li>
-<li>Trie tree</li>
-<li>Heap</li>
-<li>Graph (Cycle detection, traversal…)</li>
-<li>Dynamic programing</li>
-</ul>
-<p>因為不論是電話面試還是onsite的白板題, 都需要全程寫code, 而且有些公司是會要求compile然後跑測資的。所以練習的時候如果本身沒有強大的基礎, 請盡量練習的每一題都認真寫過一遍, 並且了解背後的基礎而不是死記(畢竟那對於打算長期以科技業維生的你也沒有任何幫助)。模擬面試時, 多多描述你的思考邏輯以及如何把一個大的問題拆分成一個個小的問題來解決。有多餘的時間的話, 也可以練習寫一些測試來幫助你直覺性的注意到可能會有bug的地方, 從corner case開始寫會是一個不錯的開始。這部分就是有練習有分, 觀摩討論區的解法然後建立起自己的Template會對速度很有幫助, 畢竟你有可能是要在40分鐘內拆解一個Leetcode hard level的問題, 很容易一個不小心時間過去但是一行都寫不出來, 只講了一嘴白話。</p>
-<p>系統設計的部分就包山包海, 網路上已經有相當多專門的gitbook著墨在這一塊, 文末會附上我有使用的各類資源網站。系統問題的難度也會根據面試的職位而有所差異, 針對公司的產品下手會是個不錯的選擇, 例如Facebook就多研究一下如何建立跟查找一個social graph, youtube就理解一下背後影音cache的架構。我個人認為這部分是面試過程中最難也是最有鑑別度的一環。</p>
-<p>最後一個面試大家會注意的角度是Behavior, 這部分面試者會觀察你是否符合公司的企業文化, 以及對方如果身為一個管理階層是不是願意跟你在同一個單位工作這樣的角度去觀察你的面試表現。這部分比較難以準備, 總括來說還是以口條清晰、容易合作並且在溝通技術類別的專案的時候, 盡量用適合的比喻來讓非技術背景的人員能清楚理解你的意思。每個人的人格特質都有好與不好的部分, 了解自己是在Behavior這關拿分的要點。自己擅長什麼、缺少什麼, 都會決定最後想要表現給面試官的第一印象的方向。</p>
-<h2 id="時程排期"><a class="header-anchor" href="#時程排期">¶</a>時程排期</h2>
-<p>在美國找工作從接觸Recruiter到最後接受Offer到新公司, 中間很有可能三四個月就過去了, 所以我認為排期相當重要。要是能掌控好能在差不多的時間點可能收到各個公司的結果是最好的, 方便做最後選擇跟討價還價, 心情上也比較不容易被長期抗戰拖垮。一般的情況下通才招募的時間比較彈性, 想要延期你的電話面試超過三到六個月都是有可能的, 相對的他們的面試期就拖的比較長, 可能電話面試完兩三個禮拜之後才知道有沒有onsite, onsite之後可能又要等兩三個禮拜才有回音決定是不是要送HC或是加面, 然後等HC通過跟準備offer可能又一個多禮拜過去了。這個部分Start up或是中小型的公司速度就快很多, 很有可能從聯絡到發offer不超過一個月甚至兩個禮拜。因此安排面試的時候就要預估最後獲得結果的時間, 想辦法最大化那個時間區間內可以獲得的面試結果數量。告訴Recruiter你的時程表, 通常他們都很樂意配合你的時間表並且告訴你什麼時候開始你的面試最適合。</p>
-<h2 id="面試之後"><a class="header-anchor" href="#面試之後">¶</a>面試之後</h2>
-<p>不論是電話面試還是onsite之後, 請盡量保持與Recruiter的聯繫, 要是一兩個禮拜依然沒有回音就跟對方詢問一下進度跟結果。這個時候會有三種可能的結果：</p>
-<h4 id="拒絕"><a class="header-anchor" href="#拒絕">¶</a>拒絕</h4>
-<p>非常常見, 千萬不要因為被一間Dream Company拒絕就灰心喪志。被拒絕的原因有幾百種, 有可能就是當天中邪怎樣講都講不對, 或是面試官跟你不對盤, 也有可能單純的那個職缺招滿了。可以禮貌地詢問Recruiter被拒絕的原因,這有效地幫助你繼續面試下一家且不要踩到同樣的地雷。隨手一封感謝信並且跟對方保持聯繫對拓展人脈是有正向效果的, 說不定過一陣子人家缺人時, 第一個就想到你這個遺珠之憾。</p>
-<h4 id="加面"><a class="header-anchor" href="#加面">¶</a>加面</h4>
-<p>有時會被要求, 表示對方對你有興趣但是並不是百分之百有信心, 或是你在某一些關鍵點表現得差強人意。這部分可以跟Recruiter討論, 針對自己的時間跟策略重新調整。我聽到相當多的例子加面之後都是穩穩地拿了offer, 是一個敗部復活的機會, 好好把握。</p>
-<h4 id="錄取"><a class="header-anchor" href="#錄取">¶</a>錄取</h4>
-<p>恭喜, 走到這一步已經心裡的大石放下一半了。當拿到offer的時候, 這邊有一個大部分亞洲人基本上是直接放棄的選項: 薪資協商。 因為國外工作者需要申請簽證的關係, 導致於錄取者是雇主開什麼價就拿什麼。我建議有多份offer的朋友可以考慮協商與喊價, 前陣子有一位Haseeb Qureshi透過拿了多份offer以及相當穩健的協商技巧讓自己的薪資翻倍, 並且寫了一系列的心得<a href="https://haseebq.com/my-ten-rules-for-negotiating-a-job-offer/" target="_blank" rel="noopener">Ten Rules for Negotiating a Job Offer<br>
-</a> 這系列的文章在我與Recruiter協商時惠我良多, 有興趣的朋友請自行參考。</p>
-<h2 id="總結"><a class="header-anchor" href="#總結">¶</a>總結</h2>
-<p>筆者這次在科技叢林尋找機會的過程中, 算是走遍了各大公司。從準備到第一個電話面試開始到最後決定Offer總共花了6個月+左右。這半年來我覺得換找工作最痛苦的莫過於下列幾點。</p>
-<h4 id="毅力"><a class="header-anchor" href="#毅力">¶</a>毅力</h4>
-<p>每一天都要唸書跟刷題真的不是一件簡單的差事, 加上已經不是學生白天還得上班, 最後導致一兩點睡是常態。</p>
-<h4 id="患得患失"><a class="header-anchor" href="#患得患失">¶</a>患得患失</h4>
-<p>我在Amazon的電話面試就被海刷, 但是卻成功挺進Google, Linkedin, Airbnb等夢想公司面試的最後一輪。而在那整個過程中我起起伏伏的表現跟節外生枝的負面情緒整體來說對面試準備是個X因子, 如何紓解面試期間的壓力是一個必須面對的課題。</p>
-<h4 id="模擬面試"><a class="header-anchor" href="#模擬面試">¶</a>模擬面試</h4>
-<p>模擬面試是一個必須且痛苦的過程, 期間你會暴露自己<code>大量</code>不願面對的缺點以及接收相當程度的批評, 之後需要轉化這些建議成為自己的準備的方向, 這部分花上的時間跟精力真的讓我最後每次想到都頭痛。</p>
-<p>面試的過程總是相當辛苦, 而且收穫不見得與付出成正比。影響面試的因素除了實力還要有相當的運氣, 千萬不要因為自己無法面不上那些萬中選一的公司而喪氣, 面試失利並不代表你在這個產業只是個庸才, 很多時候說不定那間上不了的夢想公司, 根本不是對你來說最好的去處。而且獲得offer開始正式上工之後, 才是下一條艱辛路途的開始。<br>
-當然某種程度上我也不完全認同現在的面試制度可以合理的篩選出最棒的人才, 只是這的確是目前業界公認最佳的篩選過程, 且至今還沒有其他的組織提出一個更好的方式。</p>
-<p>另外對於一些資深工程師或是架構師認為這些大量演算法/資料結構的面試方法並不符合他們面試的職位, 我個人是傾向支持這篇<a href="https://www.quora.com/How-should-I-avoid-getting-an-overqualified-tag-in-a-Google-interview" target="_blank" rel="noopener">Quora的回答</a>, 若有興趣的朋友可以參考一下。</p>
-<p>最後是我有使用的工具以及網路資源</p>
-<ol>
-<li><a href="https://leetcode.com/" target="_blank" rel="noopener">https://leetcode.com/</a></li>
-<li><a href="https://github.com/skygragon/leetcode-cli" target="_blank" rel="noopener">[Github] leetcode-cli</a></li>
-<li><a href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener">https://github.com/donnemartin/system-design-primer</a></li>
-<li><a href="https://github.com/checkcheckzz/system-design-interview" target="_blank" rel="noopener">https://github.com/checkcheckzz/system-design-interview</a></li>
-<li><a href="https://github.com/binhnguyennus/awesome-scalability" target="_blank" rel="noopener">https://github.com/binhnguyennus/awesome-scalability</a></li>
-<li><a href="https://medium.com/netflix-techblog" target="_blank" rel="noopener">https://medium.com/netflix-techblog</a></li>
+        <ol>
+<li>
+<p>Download the tarball from <a href="http://apache.mirrors.tds.net/hadoop/common/" target="_blank" rel="noopener">Hadoop official website</a> and install JAVA. Recommend jdk is oracle java 1.6+, it provides jps and we will use it to check java process later on.<br>
+<code>Note: stable Hadoop was 2.2 back at 2014</code></p>
+</li>
+<li>
+<p>Update /etc/hosts and set up cluster<br>
+e.g. assuming the machine is master</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">127.0.0.1   localhost.localdomain localhost</span><br><span class="line">127.0.0.1   master</span><br><span class="line">::1     localhost6.localdomain6 localhost6</span><br><span class="line">1.2.3.4    master</span><br><span class="line">1.2.3.5    slave</span><br></pre></td></tr></table></figure>
+<p>also update IP as the static IP</p>
+</li>
+<li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar –zxf hadoop-*-.tar</span><br></pre></td></tr></table></figure>
+<p>Note: tarball was compiled under 32-bit machine so downloading the source and compile it by yourself under 64-bits machine can get rid of warning message. If getting this warning <code>WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</code> check <a href="http://stackoverflow.com/questions/19943766/hadoop-unable-to-load-native-hadoop-library-for-your-platform-error-on-centos/19993403#19993403" target="_blank" rel="noopener">stackoverflow</a> and <a href="http://www.ercoppa.org/Linux-Compile-Hadoop-220-fix-Unable-to-load-native-hadoop-library.htm" target="_blank" rel="noopener">this</a> out.</p>
+</li>
+<li>
+<p>update the environment variables in <code>~/.bashrc</code><br>
+current variables are:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/opt/jdk1.7.0_60</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$HOME</span>/hadoop/bin:<span class="variable">$HOME</span>/hadoop/sbin:<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_PREFIX=<span class="variable">$HOME</span>/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_MAPRED_HOME=<span class="variable">$HOME</span>/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_COMMON_HOME=<span class="variable">$HOME</span>/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_HDFS_HOME=<span class="variable">$HOME</span>/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_YARN_HOME=<span class="variable">$HOME</span>/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=<span class="variable">$HADOOP_PREFIX</span>/etc/hadoop</span><br><span class="line"><span class="built_in">export</span> YARN_CONF_DIR=<span class="variable">$HADOOP_PREFIX</span>/etc/Hadoop</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>set up ssh password-less between each nodes.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ yum  -y  install  openssh  rsync</span><br><span class="line">$ service sshd restart</span><br><span class="line">$ ssh-keygen -t dsa -P <span class="string">''</span> -f ~/.ssh/id_dsa</span><br><span class="line">$ cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">$ chmod 600 authorized_keys</span><br><span class="line"><span class="comment"># then </span></span><br><span class="line">$ cat ~/.ssh/id_dsa.pub &gt;&gt; authorized_keys_files_in_other_machines</span><br></pre></td></tr></table></figure>
+<p>in other slave/master. make sure every nodes have each other’s id_dsa.pub.<br>
+Test if it is password-less by using: <code>$ ssh localhost &amp;&amp; ssh SLAVE/HOST_NAME</code></p>
+</li>
+<li>
+<p>update configuration document<br>
+current content:<br>
+$HADOOP_HOME/etc/hadoop/core-stie.xml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;hdfs://master:9000&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">  	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;path/to/hadoop/tmp&lt;/value&gt;</span><br><span class="line">  	&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>$HADOOP_HOME/etc/hadoop/hdfs-stie.xml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;2&lt;/value&gt;</span><br><span class="line">		&lt;description&gt;you can set your own replica size&lt;/description&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;dfs.permissions&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;false&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;dfs.webhdfs.enabled&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;true&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>$HADOOP_HOME/etc/hadoop/yarn-stie.xml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;master:8025&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;master:8030&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;master:8040&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>$HADOOP_HOME/etc/hadoop/mapred-stie.xml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;master:10020&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;master:19888&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>There’s some useful references here: <a href="http://fenriswolf.me/2012/05/25/hadoop-%E5%8F%83%E6%95%B8%E8%A8%AD%E5%AE%9A-hdfs-site-xml/" target="_blank" rel="noopener">Hadoop 參數設定 – hdfs-site.xml</a></p>
+</li>
+<li>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hadoop namenode –format</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ start-dfs.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ jps</span><br></pre></td></tr></table></figure>
+<p>and check every service you start is running. <strong><em>always check with <code>$ jps</code> or <code>$ ps aux | grep node</code></em></strong></p>
+</li>
+<li>
+<p>Now we are supposed to use any command under hadoop fs &lt;-option&gt;</p>
+</li>
+<li>
+<p>Simple usage:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ bin/hadoop fs [option]</span><br><span class="line"># [option]s:</span><br><span class="line">#	- ls</span><br><span class="line">#	- mkdir</span><br><span class="line">#	- copyFromLocal</span><br><span class="line">#	- copyToLocal</span><br><span class="line">#	- moveToLoacl</span><br><span class="line">#	- rm</span><br><span class="line">#	- tail</span><br><span class="line">#	- chmod</span><br><span class="line">#	- setrep -w 4 -R /dir1/s-dir/</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<p>希望這篇文章能稍微幫助到最近需要在美國市場找工作的朋友, 共勉之。</p>
+<p>Reference:<br>
+<a href="http://shaurong.blogspot.com/2013/12/hadoop-220-cluster-centos-65-x64.html" target="_blank" rel="noopener">[研究] Hadoop 2.2.0 Cluster 安裝 (CentOS 6.5 x64)</a><br>
+<a href="http://raseshmori.wordpress.com/2012/10/14/install-hadoop-nextgen-yarn-multi-node-cluster/" target="_blank" rel="noopener">Steps to install Hadoop 2.x release (Yarn or Next-Gen) on multi-node cluster</a><br>
+If you want to use third party package like <strong><em>Cloudera</em></strong>, following tutorial may be useful for you.<br>
+<a href="http://www.tecmint.com/install-hadoop-multinode-cluster-in-centos/" target="_blank" rel="noopener">Install Hadoop Multinode Cluster using CDH4 in RHEL/CentOS 6.5</a><br>
+<a href="http://fenriswolf.me/2012/12/06/cloudera-manager-free-edition-4-1-%E5%92%8C-cdh-4-1-2-%E7%B0%A1%E6%98%93%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/" target="_blank" rel="noopener">Cloudera Manager Free Edition 4.1 和 CDH 4.1.2 簡易安裝教學</a></p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-paginator">
         <li class="next">
             
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2014/04/11/multi-python-ubuntu/" title= 在Ubuntu 12.04 下安裝不同版本python >
+                    <div class="nextTitle">在Ubuntu 12.04 下安裝不同版本python</div>
+                </a>
+            
         </li>
         <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2014/05/25/oversea-anniversary/" title= 異鄉一年心得 >
-                    <div class="prevTitle">異鄉一年心得</div>
-                </a>
             
         </li>
     </ul>
@@ -531,7 +534,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">¶前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求職背景"><span class="toc-number">2.</span> <span class="toc-text">¶求職背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#取得面試"><span class="toc-number">3.</span> <span class="toc-text">¶取得面試</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面試準備"><span class="toc-number">4.</span> <span class="toc-text">¶面試準備</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#時程排期"><span class="toc-number">5.</span> <span class="toc-text">¶時程排期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面試之後"><span class="toc-number">6.</span> <span class="toc-text">¶面試之後</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#拒絕"><span class="toc-number">6.0.1.</span> <span class="toc-text">¶拒絕</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#加面"><span class="toc-number">6.0.2.</span> <span class="toc-text">¶加面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#錄取"><span class="toc-number">6.0.3.</span> <span class="toc-text">¶錄取</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#總結"><span class="toc-number">7.</span> <span class="toc-text">¶總結</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#毅力"><span class="toc-number">7.0.1.</span> <span class="toc-text">¶毅力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#患得患失"><span class="toc-number">7.0.2.</span> <span class="toc-text">¶患得患失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模擬面試"><span class="toc-number">7.0.3.</span> <span class="toc-text">¶模擬面試</span></a></li></ol></li></ol></li></ol>
+        
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
